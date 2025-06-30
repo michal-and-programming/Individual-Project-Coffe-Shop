@@ -1,0 +1,46 @@
+@import "variables.scss";
+
+h2{
+  font-size: 40px;
+  color: $color-beige;
+  letter-spacing: 5px;
+}
+
+.header-brand-nav-container{
+  color: $color-white;
+
+  .header-brand-title{
+    font-size: 30px;
+    font-weight: $font-bold;
+    letter-spacing: 5px;
+  }
+
+  .header-brand-description{
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: $font-bold;
+  }
+
+  .header-nav a{
+    text-decoration: none;
+    color: $color-white;
+    font-size: 15px;
+    font-weight: $font-semibold;
+  }
+}
+
+.header-h1-container{
+  font-size: 38px;
+  font-weight: $font-black;
+  color: $color-beige;
+  letter-spacing: 13px;
+}
+
+.header-discover-description{
+  color: $color-white;
+  font-weight: $font-regular;
+  font-size: 25px;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 4px;
+}

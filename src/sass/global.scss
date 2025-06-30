@@ -1,0 +1,28 @@
+@import "variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: "Source Sans 3", sans-serif;
+}
+
+.page {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.underline{
+  height: 5px;
+  width: 400px;
+  background-color: $color-beige;
+  margin-top: 10px;
+}

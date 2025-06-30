@@ -1,0 +1,110 @@
+@import "variables";
+
+.header {
+  background-image: url('../images/background.png');
+  background-size: cover;
+  background-position: top;
+  height: 100vh;
+  padding-top: 30px;
+  position: relative;
+
+  ::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    z-index: 1;
+  }
+}
+
+.header-brand-nav-container{
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 1200px;
+  align-items: center;
+
+  p{
+    position: relative;
+    z-index: 2;
+  }
+
+  .header-brand-description{
+    margin-top: 5px;
+  }
+
+  .header-nav{
+    display: flex;
+    gap: 20px;
+
+    a{
+      cursor: pointer;
+    }
+  }
+}
+
+.header-content-container{
+  padding-top: 100px;
+
+  .header-h1-container{
+    width: 100%;
+    padding-left: 20%;
+
+    ::after{
+      content: '';
+      position: absolute;
+      left: 37%;
+      top: 120%;
+      height: 5px;
+      width: 200px;
+      background-color: $color-beige;
+      transform: translateX(-50%);
+    }
+
+    h1{
+      position: relative;
+      z-index: 2;
+    }
+
+    .header-span-h1{
+      display: block;
+      padding-left: 13%;
+      margin-top: -10px;
+    }
+  }
+}
+
+.header-discover-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 14%;
+}
+
+
+.header-discover-button{
+  display: block;
+  margin-top: 3%;
+  background-color: transparent;
+  border: none;
+
+  i{
+    color: $color-white;
+    font-size: 33px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+  }
+}
+
+.home-products-h2-container{
+  display: flex;
+  justify-content: center;
+}
+
+.about{
+  background-image: url('../images/about-us.png');
+}
