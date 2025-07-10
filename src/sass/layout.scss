@@ -8,15 +8,19 @@
   padding-top: 30px;
   position: relative;
 
-  ::after{
+  &::after{
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.06);
     z-index: 1;
+  }
+
+  @media (max-width:768px){
+    height: auto;
   }
 }
 
@@ -26,6 +30,8 @@
   margin: 0 auto;
   max-width: 1200px;
   align-items: center;
+  position: relative;
+  z-index: 2;
 
   p{
     position: relative;
@@ -35,6 +41,30 @@
   .header-brand-description{
     margin-top: 5px;
   }
+  
+  .header-nav-container{
+    position: relative;
+  }
+
+  .header-nav-hamburger-menu{
+    display: none;
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    background-color: $color-white;
+    color: $color-beige;
+    border-radius: 20%;
+    position: relative;
+
+    @media (max-width:768px){
+      display: block;
+      transition: all 0,3s;
+
+      &:active{
+        scale: 80%;
+      }
+    }
+  }
 
   .header-nav{
     display: flex;
@@ -42,6 +72,39 @@
 
     a{
       cursor: pointer;
+
+      &::after{
+        display: block;
+        content: "";
+        width: 100%;
+        background-color: $color-beige;
+        height: 3px;
+        margin-top: 5px;
+        scale: 0;
+        transition: scale 0.3s;
+      }
+
+      &:hover::after{
+        scale: 1;
+      }
+    }
+    @media (max-width: 768px){
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+
+      a::after{
+        display: none;
+      }
+
+      &.active {
+        display: flex;
+      }
     }
   }
 }
@@ -75,6 +138,12 @@
       margin-top: -10px;
     }
   }
+
+  @media (max-width: 768px){
+    .header-content-container{
+      padding-top: 50px;
+    }
+  }
 }
 
 .header-discover-container{
@@ -82,29 +151,52 @@
   flex-direction: column;
   align-items: center;
   margin-top: 14%;
-}
 
+  .header-discover-button{
+    display: block;
+    margin-top: 3%;
+    background-color: transparent;
+    border: none;
 
-.header-discover-button{
-  display: block;
-  margin-top: 3%;
-  background-color: transparent;
-  border: none;
+    i{
+      color: $color-white;
+      font-size: 33px;
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
 
-  i{
-    color: $color-white;
-    font-size: 33px;
-    position: relative;
-    z-index: 2;
-    cursor: pointer;
+    i:hover{
+      border: 3px solid $color-beige;
+      border-radius: 50%;
+    }
   }
 }
 
 .home-products-h2-container{
   display: flex;
   justify-content: center;
-}
+  position: relative;
+  margin: 50px 0 80px 0;
+  z-index: 2;
 
-.about{
-  background-image: url('../images/about-us.png');
+  @media (max-width: 768px){
+    margin: 15px 0 35px 0;
+  }
+
+  &::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 120%;
+    height: 4px;
+    width: 600px;
+    background-color: $color-beige;
+    transform: translateX(-50%);
+
+    @media (max-width: 768px){
+      width: 120px;
+    }
+  }
 }

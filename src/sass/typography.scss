@@ -1,9 +1,13 @@
 @import "variables.scss";
 
 h2{
-  font-size: 40px;
+  font-size: 55px;
   color: $color-beige;
-  letter-spacing: 5px;
+  letter-spacing: 9px;
+
+  @media (max-width: 768px){
+    font-size: 28px;
+  }
 }
 
 .header-brand-nav-container{
@@ -13,12 +17,20 @@ h2{
     font-size: 30px;
     font-weight: $font-bold;
     letter-spacing: 5px;
+
+    @media (max-width: 768px){
+      font-size: 18px;
+    }
   }
 
   .header-brand-description{
     font-size: 11px;
     letter-spacing: 4px;
     font-weight: $font-bold;
+
+    @media (max-width: 768px){
+      font-size: 9px;
+    }
   }
 
   .header-nav a{
@@ -34,6 +46,10 @@ h2{
   font-weight: $font-black;
   color: $color-beige;
   letter-spacing: 13px;
+
+  @media(max-width: 768px) {
+    font-size: 15px;
+  }
 }
 
 .header-discover-description{
@@ -43,4 +59,66 @@ h2{
   position: relative;
   z-index: 2;
   letter-spacing: 4px;
+
+  @media (max-width: 768px){
+    font-size: 20px;
+  }
+}
+
+.template-products-h3{
+  font-size: 38px;
+  letter-spacing: 5px;
+  margin-top: 30px;
+
+  @media (max-width: 768px){
+    font-size: 21px;
+    margin-top: 0;
+  }
+}
+
+.template-products-description{
+  font-size: 13px;
+  font-weight: $font-regular;
+  line-height: 1.6;
+}
+
+.template-products-parameters-container p{
+  font-weight: $font-bold;
+  letter-spacing: 2px;
+}
+
+.about-description-container{
+  font-size: 30px;
+  color: $color-white;
+  font-weight: $font-italic-semibold;
+
+  @media (max-width: 768px){
+    font-size: 15px;
+  }
+}
+
+.about-description-container-join{
+  font-size: 30px;
+  color: $color-white;
+  font-weight: $font-italic-semibold;
+
+  @media (max-width: 768px){
+    font-size: 15px;
+  }
+}
+
+.footer{
+  font-size: 12px;
+}
+
+.contact-container{
+  font-weight: $font-bold;
+  letter-spacing: 4px;
+  font-size: 18px;
+
+  .contact-submit-button{
+    font-size: 20px;
+    font-weight: $font-bold;
+    letter-spacing: 4px;
+  }
 }

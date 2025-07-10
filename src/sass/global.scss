@@ -20,9 +20,16 @@ body{
   }
 }
 
-.underline{
-  height: 5px;
-  width: 400px;
-  background-color: $color-beige;
-  margin-top: 10px;
+.container{
+  padding: 0 18%;
+
+  @media (max-width: 768px){
+    padding: 0;
+  }
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
 }

@@ -15,8 +15,9 @@
           <p class="header-brand-title">EL TIGRE</p>
           <p class="header-brand-description">VENEZUELA COFFE BEANS</p>
         </div>
-        <div>
-          <nav class="header-nav">
+        <div class="header-nav-container">
+          <button type="button" class="header-nav-hamburger-menu">&#9776;</button>
+          <nav class="header-nav page">
             <a href="#home">HOME</a>
             <a href="#products">PRODUCTS</a>
             <a href="#contact">CONTACT</a>
@@ -43,20 +44,52 @@
       <section class="about">
         <div class="home-products-h2-container">
           <h2>ABOUT US</h2>
-          <div class="underline"></div>
         </div>
-        <div>
+        <div class="about-description-container">
           <p>Who are we? Just a bunch of friends with a love for a good coffee and desire to create something new, something original.</p>
           <p>Our coffees reflect us - young, wild and free. We are on the journey of new tastes...</p>
-          <p>Join us!</p>
+        </div>
+        <div class="about-description-container-join">
+           <p>Join us!</p>
         </div>
       </section>
+      <footer class="footer">
+        <p>© 2021 EL TIGRE inc.</p>
+      </footer>
     </section>
     <section id="products" class="page">
       <div class="products-page"></div>
+      <footer class="footer">
+        <p>© 2021 EL TIGRE inc.</p>
+      </footer>
     </section>
     <section id="contact" class="page">
       <div class="contact-page"></div>
+      <section>
+        <div class="home-products-h2-container">
+          <h2>CONTACT US</h2>
+        </div>
+        <section class="contact-container">
+          <div class="contact-input-container">
+            <label>NAME</label>
+            <input type="text">
+          </div>
+          <div class="contact-input-container">
+            <label>TITLE</label>
+            <input type="text">
+          </div>
+          <div class="contact-textarea-container">
+            <label>MESSAGE</label>
+            <textarea></textarea>
+          </div>
+          <div>
+            <button type="submit" class="contact-submit-button">SUBMIT</button>
+          </div>
+        </section>
+        <footer class="footer">
+          <p>© 2021 EL TIGRE inc.</p>
+        </footer>
+      </section>
     </section>
   </div>
 
@@ -64,21 +97,24 @@
     <section class="container">
         <div class="home-products-h2-container">
           <h2>PRODUCTS</h2>
-          <div class="underline"></div>
         </div>
+         {{#each products}}
       <div class="row">
-        {{#each products}}
-        <div class="col-md-6">
-          <h3>{{title}}</h3>
-          <p>{{description}}</p>
-          <p>{{roasting}}</p>
-          <p>{{intensity}}</p>
+        <div class="col-md-6 {{#if reverse}}reverse-text{{/if}}">
+          <h3 class="template-products-h3">{{title}}</h3>
+          <div class="template-products-specification-container">
+            <p class="template-products-description">{{description}}</p>
+            <div class="template-products-parameters-container">
+              <p>ROASTING:<span>{{roasting}}</span></p>
+              <p>INTENSITY:<span>{{intensity}}</span></p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6">
-          <img src="{{image}}" alt="image" class="img-fluid" />
+        <div class="col-md-6 {{#if reverse}}reverse-image{{/if}}">
+          <img src="{{image}}" alt="image" class="img-fluid template-products-image"/>
         </div>
-        {{/each}}
       </div>
+       {{/each}}
     </section>
   </script>
 

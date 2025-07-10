@@ -3,9 +3,6 @@ export const settings = {
     url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
     products: 'products',
   },
-  templateOF:{
-    products: '#template-products',
-  }
 };
 
 export const select = {
@@ -16,7 +13,13 @@ export const select = {
     contactPage: '.contact-page',
   },
   nav:{
-    links: 'header-nav a',
+    links: '.header-nav a',
+    scroll: '.header-discover-button',
+    hamburgerMenu: '.header-nav-hamburger-menu',
+    menuLinks: '.header-nav',
+  },
+  templateOf:{
+    products: '#template-products',
   }
 };
 

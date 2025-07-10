@@ -1,4 +1,4 @@
-import { settings, templates } from './settings.js';
+import { templates } from './settings.js';
 
 class Products {
   constructor(element, refToApp){
@@ -11,12 +11,9 @@ class Products {
   render(){
     const thisProducts = this;
 
-    const generatedHTML = templates.products(settings.db.products);
+    const generatedHTML = templates.products(thisProducts.refToApp.package);
     thisProducts.element.innerHTML = generatedHTML;
   }
 }
 
 export default Products;
-
-
-

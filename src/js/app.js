@@ -1,5 +1,5 @@
 import { settings, select, classNames } from './settings.js';
-import Products from 'Products.js';
+import Products from './ProductsList.js';
 
 const app = {
   initPages: function(){
@@ -7,17 +7,6 @@ const app = {
 
     thisApp.pages = document.querySelector(select.containerOF.pages).children;
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
-    const idFromHash = window.location.hash.replace('#/', '');
-    let pageMatchingHash = thisApp.pages[0].id;
-
-    for(let page of thisApp.pages){
-      if(page.id == idFromHash){
-        pageMatchingHash = page.id;
-        break;
-      }
-    }
-    
-    thisApp.activatePage(pageMatchingHash);
     
     for(let link of thisApp.navLinks){
       link.addEventListener('click', function(event){
@@ -37,11 +26,11 @@ const app = {
       page.classList.toggle(classNames.pages.active, page.id == pageId);
       const pageHome = document.querySelector(select.containerOF.homePage);
       const productsPage = document.querySelector(select.containerOF.productsPage);
-      if(pageId == 'home'){
-        thisApp.home = new Products(pageHome, thisApp);
+      if(pageId === 'home'){
+        new Products(pageHome, thisApp);
       }
-      if(pageId == 'products'){
-        thisApp.products = new Products(productsPage, thisApp);
+      if(pageId === 'products'){
+        new Products(productsPage, thisApp);
       }
     }
   },
@@ -54,19 +43,62 @@ const app = {
     fetch(url)
       .then(function(response){
         return response.json();
+        
       })
       .then(function(response){
         thisApp.package.products = response;
+        const idFromHash = window.location.hash.replace('#/', '');
+        let pageMatchingHash = thisApp.pages[0].id;
+
+        for(let page of thisApp.pages){
+          if(page.id == idFromHash){
+            pageMatchingHash = page.id;
+            break;
+          }
+        }
+    
+        thisApp.activatePage(pageMatchingHash);
       })
       .catch(function(error){
         console.log(error);
       });
   },
 
+  scroll: function(){
+    const thisApp = this;
+    thisApp.scrollButton = document.querySelector(select.nav.scroll);
+    thisApp.pages = document.querySelector(select.containerOF.pages).children;
+    
+    thisApp.scrollButton.addEventListener('click', function(){
+      for(let scrollPage of thisApp.pages){
+        if(scrollPage.id === 'home'){
+          document.querySelector(select.containerOF.homePage).scrollIntoView({behavior: 'smooth'});
+        }
+        if(scrollPage.id === 'products'){
+          document.querySelector(select.containerOF.productsPage).scrollIntoView({behavior: 'smooth'});
+        }
+        if(scrollPage.id === 'contact'){
+          document.querySelector(select.containerOF.contactPage).scrollIntoView({behavior: 'smooth'});
+        }
+      } 
+    });
+  },
+
+  initHamburgerMenu: function(){
+    const thisApp = this;
+    thisApp.menu = document.querySelector(select.nav.hamburgerMenu);
+    thisApp.menuLinks = document.querySelector(select.nav.menuLinks);
+    thisApp.menu.addEventListener('click', function(){
+      thisApp.menuLinks.classList.toggle(classNames.pages.active);
+    });
+  },
+
   init: function(){
     const thisApp = this;
     thisApp.initPages();
     thisApp.initData();
+    thisApp.scroll();
+    thisApp.initHamburgerMenu();
   },
 };
 
